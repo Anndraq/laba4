@@ -1,0 +1,39 @@
+{% extends "app/layout.html" %}
+{% load custom_filters %}
+{% block content %}
+
+<h2>Корзина</h2>
+{% if cart_items %}
+<ul class="cart-list">
+    {% for item in cart_items %}
+    <li class="cart-item">
+        <div class="cart-item-content">
+            <div class="cart-item-summary">
+                <span class="cart-item-quantity">{{ item.quantity }} x</span>
+                <span class="cart-item-name">{{ item.bike.name|escape }}</span>
+            </div>
+            <div class="cart-item-total">
+                {{ item.quantity|multiply:item.bike.price|floatformat:2 }} руб.
+            </div>
+            <div class="remove-item-buttons">
+                <form action="{% url 'remove_item' item.id %}" method="POST" class="remove-item-form">
+                    {% csrf_token %}
+                    <button type="submit" class="remove-item-button">Удалить</button>
+                </form>
+                <form action="{% url 'remove_all_items' item.id %}" method="POST" class="remove-all-items-form">
+                    {% csrf_token %}
+                    <button type="submit" class="remove-item-button">Удалить все</button>
+                </form>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<div class="total-cost">
+    <h3>Общая стоимость:</h3>
+    <span id="total-price">{{ cart_items|total_cost|floatformat:2 }} руб.</span>
+</div>
+{% else %}
+<p>Ваша корзина пуста. Добавьте товары, чтобы продолжить.</p>
+{% endif %}
+{% endblock %}

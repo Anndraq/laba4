@@ -1,0 +1,32 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>Добавление новой статьи</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-learn-more-white">Сохранить</button>
+    <a href="{% url 'blog' %}" class="btn btn-learn-more-white">Назад</a>
+</form>
+
+<!-- Предварительный просмотр изображения -->
+<script>
+    document.querySelector('#id_image').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imgElement = document.createElement('img');
+                imgElement.src = e.target.result;
+                imgElement.style.maxWidth = '100px';
+                imgElement.style.maxHeight = '100px';
+                document.querySelector('#image-preview').innerHTML = '';
+                document.querySelector('#image-preview').appendChild(imgElement);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+<div id="image-preview"></div>
+{% endblock %}

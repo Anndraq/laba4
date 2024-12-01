@@ -1,0 +1,54 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ post.title }}</h2>
+{% if post.image %}
+<img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-responsive" style="width: 100%;">
+{% endif %}
+<p class="short-content">{{ post.short_content|linebreaks }}</p>
+<div class="full-content">
+    {{ post.full_content|linebreaks }}  <!-- Используйте linebreaks вместо safe -->
+</div>
+<p class="posted">Опубликована: {{ post.posted }}</p>
+<div style="display: flex; align-items: center;">
+    <p class="author" style="margin: 0;">Автор: {{ post.author.username }}</p>
+    <a href="{% url 'blog' %}" class="btn btn-default" style="margin-left: auto;">Назад</a>
+</div>
+
+{% if user.is_authenticated %}
+<h3>Добавить комментарий</h3>
+<form method="POST">
+    {% csrf_token %} {# защита от атак CSRF #}
+    <div>
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default" id="submit-button">Отправить комментарий</button>
+    </div>
+</form>
+{% else %}
+<h3>Для добавления своего комментария, пожалуйста, авторизуйтесь</h3>
+{% endif %}
+
+<h3>Комментарии:</h3>
+{% for comment in comments %}
+<hr />
+<div class="feedback-container">
+    <h7 class="feedback-label">{{ comment.date }}</h7>
+    <h5 class="feedback-value">{{ comment.author.username }}</h5>
+    <p class="comment-text">{{ comment.text }}</p>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var submitButton = document.getElementById('submit-button');
+        submitButton.addEventListener('mouseover', function () {
+            submitButton.style.backgroundColor = '#007bff'; // Цвет при наведении
+        });
+        submitButton.addEventListener('mouseout', function () {
+            submitButton.style.backgroundColor = ''; // Возвращение к исходному цвету
+        });
+    });
+</script>
+{% endblock %}

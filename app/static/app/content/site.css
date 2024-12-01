@@ -1,0 +1,643 @@
+/* site.css */
+
+/* Основные стили для тела страницы */
+body {
+    padding-top: 60px; /* Отступ сверху для контента */
+    padding-bottom: 20px;
+    background-image: url('i.webp'); /* картинка бека */
+    color: #ffffff; /* Белый текст */
+    font-family: 'Arial', sans-serif; /* Шрифт Arial */
+    margin: 0; /* Убираем отступы у body */
+    padding: 0; /* Убираем внутренние отступы у body */
+}
+
+/* Устанавливаем отступы для контента */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Стили для форм */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Стили для валидации */
+.field-validation-error {
+    color: #dc3545; /* Красный цвет для ошибок */
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #dc3545; /* Красная рамка для ошибок */
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #dc3545; /* Красный цвет для ошибок */
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Стили для логотипа */
+.logo {
+    max-height: 50px; /* Adjust the height as needed */
+    max-width: 150px; /* Adjust the width as needed */
+    vertical-align: middle; /* Выравнивание по вертикали */
+}
+
+/* Стили для изображений в разделе ссылок */
+.links-img {
+    max-width: 100%; /* Ensure the image fits within its container */
+    height: auto; /* Maintain the aspect ratio */
+    border: 2px solid #28a745; /* Зеленая рамка */
+    border-radius: 5px; /* Optional: slightly rounded corners */
+}
+
+/* Добавляем отступ сверху для строки с логотипами */
+.links-row {
+    margin-top: 35px; /* Adjust the margin as needed */
+}
+
+.navbar-brand {
+    padding: 0;
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    color: #000; /* Черный цвет текста для бренда */
+    font-weight: bold;
+}
+
+    .navbar-brand img {
+        height: 50px; /* Adjust the height as needed */
+        width: auto;
+        margin-right: 10px; /* Отступ между картинкой и текстом */
+    }
+
+    .navbar-brand span {
+        margin-left: 10px; /* Отступ слева от иконки */
+        font-size: 16px; /* Фиксированный размер шрифта */
+        color: #000 !important; /* черный цвет текста */
+    }
+
+/* Стили для всех элементов навигационной панели */
+.navbar-nav > li > a,
+.navbar-btn {
+    font-size: 20px; /* Фиксированный размер шрифта */
+    line-height: 50px; /* Выравнивание текста по вертикали */
+    padding: 0 15px;
+    color: #000 !important; /* черный цвет текста */
+    width: auto; /* Автоматическая ширина */
+    height: 50px; /* Фиксированная высота */
+    text-align: center; /* Центрирование текста */
+    display: inline-block; /* Делаем элементы блочными */
+    border: 2px solid transparent; /* Прозрачная рамка */
+    border-radius: 4px; /* Скругленные углы */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
+}
+
+/* Стили для кнопок с рамками */
+.btn-outline-primary {
+    background-color: transparent; /* Прозрачный фон */
+    border-color: #007bff; /* Синий цвет рамки */
+    color: #000; /* Синий цвет текста */
+}
+
+    .btn-outline-primary:hover {
+        background-color: #007bff; /* Синий фон при наведении */
+        border-color: #007bff; /* Синий цвет рамки при наведении */
+        color: #ffffff; /* Белый цвет текста при наведении */
+    }
+
+/* Стили для кнопок "Узнать больше" */
+.btn-learn-more {
+    background-color: #ffffff; /* Белый фон */
+    border: 2px solid #007bff; /* Синий цвет рамки */
+    color: #000; /* Черный цвет текста */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    display: inline-block; /* Делаем кнопку блочным элементом */
+    transition: background-color 0.3s, border-color 0.3s; /* Плавный переход цвета фона и рамки */
+}
+
+    .btn-learn-more:hover {
+        background-color: #e2e6ea; /* Светло-серый фон при наведении */
+        border-color: #0056b3; /* Темно-синий цвет рамки при наведении */
+    }
+
+/* Стили для картинок перед текстом "Как выбрать велотренажер" */
+.gallery-image-top {
+    width: 500px; /* Задайте нужную ширину */
+    height: 500px; /* Задайте нужную высоту */
+    object-fit: cover; /* Это свойство позволяет сохранить пропорции изображения */
+    border: 2px solid #007bff; /* Синий цвет рамки */
+    border-radius: 5px; /* Скругленные углы */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Стили для картинок в галерее велотренажеров */
+.gallery-image-bottom {
+    width: 500px; /* Задайте нужную ширину */
+    height: 300px; /* Задайте нужную высоту */
+    object-fit: cover; /* Это свойство позволяет сохранить пропорции изображения */
+    border: 2px solid #007bff; /* Синий цвет рамки */
+    border-radius: 5px; /* Скругленные углы */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Стили для заголовков */
+h2 {
+    color: #ffffff; /* Белый цвет заголовков */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+h3 {
+    color: #ffffff; /* Белый цвет подзаголовков */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Стили для текста */
+p {
+    font-size: 16px; /* Размер шрифта */
+    line-height: 1.6; /* Межстрочный интервал */
+    color: #ffffff; /* Белый цвет текста */
+}
+
+/* Стили для кнопок */
+.btn-primary {
+    background-color: #007bff; /* Синий фон */
+    border-color: #007bff; /* Синий цвет рамки */
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Темно-синий фон при наведении */
+        border-color: #0056b3; /* Темно-синий цвет рамки при наведении */
+    }
+
+/* Стили для карты */
+iframe {
+    border: 2px solid transparent; /* Прозрачная рамка по умолчанию */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+/* Стили для страницы "О нас" */
+.about-content {
+    margin-top: 20px;
+}
+
+    .about-content img {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #007bff; /* Синий цвет рамки */
+        border-radius: 5px; /* Скругленные углы */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+
+/* Стили для страницы "Преимущества велотренажеров" */
+.benefits-content {
+    margin-top: 20px;
+}
+
+    .benefits-content img {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #007bff; /* Синий цвет рамки */
+        border-radius: 5px; /* Скругленные углы */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+
+/* Стили для страницы "Полезные ресурсы" */
+.links-content {
+    margin-top: 20px;
+}
+
+    .links-content img {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #007bff; /* Синий цвет рамки */
+        border-radius: 5px; /* Скругленные углы */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+
+/* Стили для страницы "Обратная связь" */
+.pool-content {
+    margin-top: 20px;
+}
+
+    .pool-content form {
+        margin-bottom: 20px;
+    }
+
+    .pool-content input,
+    .pool-content textarea {
+        border: 1px solid #ced4da; /* Светло-серый цвет рамки */
+        border-radius: 5px; /* Скругленные углы */
+        padding: 10px; /* Отступы внутри полей */
+        margin-bottom: 10px; /* Отступ снизу */
+    }
+
+    .pool-content button {
+        background-color: #007bff; /* Синий фон */
+        border-color: #007bff; /* Синий цвет рамки */
+        color: #000; /* черный цвет текста */
+        padding: 10px 20px; /* Отступы внутри кнопки */
+        border-radius: 5px; /* Скругленные углы */
+        transition: background-color 0.3s, border-color 0.3s; /* Плавный переход цвета фона и рамки */
+    }
+
+        .pool-content button:hover {
+            background-color: #0056b3; /* Темно-синий фон при наведении */
+            border-color: #0056b3; /* Темно-синий цвет рамки при наведении */
+        }
+
+/* Стили для страницы "Контакты" */
+.contact-content {
+    margin-top: 20px;
+}
+
+    .contact-content address {
+        font-style: normal; /* Убираем курсив */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+
+    .contact-content abbr {
+        text-decoration: none; /* Убираем подчеркивание текста */
+    }
+
+    .contact-content a {
+        color: #007bff; /* Синий цвет ссылок */
+        text-decoration: none; /* Убираем подчеркивание текста */
+        transition: color 0.3s; /* Плавный переход цвета текста */
+    }
+
+        .contact-content a:hover {
+            color: #0056b3; /* Темно-синий цвет ссылок при наведении */
+        }
+
+.greeting {
+    line-height: 58px; /* Установите значение line-height, чтобы выровнять текст */
+    vertical-align: middle; /* Выравнивание по вертикали */
+    padding: 5px 10px; /* Отступы внутри элемента */
+    position: relative; /* Для использования псевдоэлемента */
+    margin-right: 10px; /* Отступ справа, чтобы рамки не пересекались с текстом "Выйти" */
+    color: #000 !important; /* черный цвет текста для приветствия */
+    font-size: 20px; /* Устанавливаем размер текста для приветствия */
+}
+
+    .greeting::before {
+        content: '';
+        position: absolute;
+        top: -5px; /* Смещение для компенсации отступов */
+        left: -10px; /* Смещение для компенсации отступов */
+        right: -10px; /* Смещение для компенсации отступов */
+        bottom: -5px; /* Смещение для компенсации отступов */
+        border: 2px solid transparent; /* Прозрачная рамка по умолчанию */
+        border-radius: 5px; /* Скругленные углы */
+        transition: border 0.3s; /* Плавный переход цвета рамки */
+        pointer-events: none; /* Игнорировать события мыши */
+    }
+
+    .greeting:hover::before {
+        border-color: #007bff; /* Синяя рамка при наведении */
+    }
+
+.carousel-image {
+    width: 100%; /* Ширина изображения */
+    height: 500px; /* Высота изображения */
+    object-fit: cover; /* Это свойство позволяет сохранить пропорции изображения */
+}
+
+/* Стили для кнопки отправки комментария */
+.save.btn-default {
+    background-color: #f8f9fa; /* Исходный цвет кнопки */
+    color: #000
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    color: #000; /* Белый цвет текста */
+    padding: 10px; /* Отступы для текста */
+    border-radius: 5px; /* Скругленные углы фона */
+}
+
+.save.btn-default:hover {
+    background-color: #007bff; /* Цвет при наведении */
+    color: #fff; /* Цвет текста при наведении */
+}
+
+/* Стили для кнопок по умолчанию */
+.btn-default {
+    background-color: #f8f9fa; /* Исходный цвет кнопки */
+    border-color: #ced4da; /* Исходный цвет рамки */
+    color: #000; /* Белый цвет текста */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    display: inline-block; /* Делаем кнопку блочным элементом */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
+}
+
+    .btn-default:hover {
+        background-color: #007bff; /* Синий фон при наведении */
+        color: #ffffff; /* Белый цвет текста при наведении */
+    }
+
+/* Стили для изображений одинакового размера */
+.img-same-size {
+    width: 1300px; /* устанавливаем ширину */
+    height: 200px; /* устанавливаем высоту */
+    object-fit: cover; /* сохраняем пропорции изображения */
+}
+
+/* Стили для корректировки размеров больших изображений без обрезания */
+.img-scale-down {
+    max-width: 100%; /* сжимаем, если изображение слишком велико */
+    height: auto; /* сохраняем пропорции */
+    object-fit: scale-down; /* предотвращаем деформацию */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    color: #ffffff; /* Белый цвет текста */
+    padding: 10px; /* Отступы для текста */
+    border-radius: 5px; /* Скругленные углы фона */
+}
+/* Стили для блока с текстом о велотренажерах */
+.exercise-bikes-text h2 {
+    color: #000; /* Черный цвет текста */
+    font-size: 36px; /* Увеличиваем размер заголовка */
+}
+
+.exercise-bikes-text p {
+    color: #000; /* Черный цвет текста */
+    font-size: 24px; /* Увеличиваем размер текста */
+}
+
+/* Стили для отступа кнопки "Читать далее" */
+.read-more-button {
+    margin-top: 20px; /* Отступ сверху */
+}
+/* Стили для кнопок "Читать далее" и "Назад" с белым текстом */
+.btn-learn-more-white {
+    background-color: #ffffff; /* Белый фон */
+    color: #000 !important; /* Черный цвет текста */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    display: inline-block; /* Делаем кнопку блочным элементом */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
+}
+
+    .btn-learn-more-white:hover {
+        background-color: #007bff !important; /* Синий фон при наведении */
+        color: #ffffff !important; /* Белый цвет текста при наведении */
+    }
+
+.feedback-container {
+    background-color: #c3c3c3eb; /* Белый фон */
+    padding: 20px; /* Отступы внутри блока */
+    border-radius: 10px; /* Скругленные углы */
+    color: #000000; /* Черный цвет текста по умолчанию */
+    margin-bottom: 20px; /* Отступ снизу между отзывами */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для улучшения визуального восприятия */
+}
+
+.thank-you-message {
+    font-size: 27px; /* Размер текста для фразы "Спасибо за ваш отзыв!" */
+    color: #ffffff; /* Цвет текста (можно изменить) */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.feedback-label {
+    color: #0b468f; /* синеватый цвет для меток */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 23px;
+}
+
+.feedback-value {
+    color: #000000; /* Черный цвет для значений */
+    font-style: italic; /* Курсивный шрифт */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 21px;
+}
+
+.feedback-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+    .feedback-list li {
+        margin-bottom: 10px; /* Отступ между элементами списка */
+    }
+/* Стили для комментариев */
+.comment-text {
+    color: #000 !important; /* черный цвет для текста комментария */
+    font-size: 25px !important; /* Размер шрифта для комментариев */
+    line-height: 1.6; /* Межстрочный интервал для комментариев */
+    margin-bottom: 20px; /* Отступ снизу для комментариев */
+}
+/* Стили для товаров */
+.product-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.product-image {
+    width: 100%; /* Ширина изображения */
+    height: 200px; /* Фиксированная высота изображения */
+    object-fit: contain; /* Это свойство позволяет изображению вписываться в заданные размеры */
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #000 !important;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Стили для кнопок "Узнать больше" */
+.btn-learn-more {
+    background-color: #ffffff; /* Белый фон */
+    border: 2px solid #007bff; /* Синий цвет рамки */
+    color: #000; /* Черный цвет текста */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    display: inline-block; /* Делаем кнопку блочным элементом */
+    transition: background-color 0.3s, border-color 0.3s; /* Плавный переход цвета фона и рамки */
+}
+
+    .btn-learn-more:hover {
+        background-color: #e2e6ea; /* Светло-серый фон при наведении */
+        border-color: #0056b3; /* Темно-синий цвет рамки при наведении */
+    }
+
+/* Стили для кнопки "Добавить в корзину" */
+.add-to-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+    .add-to-cart.in-cart {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: #fff;
+    }
+
+        .add-to-cart.in-cart:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+/* Стили для звезд */
+.star {
+    color: #ffd700; /* Желтый цвет для звезд */
+    font-size: 24px; /* Размер звезд */
+}
+
+.navbar {
+    background-image: url("/static/app/content/shapka.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    position: relative; /* Относительное положение */
+    top: 0; /* Верхнее положение */
+    left: 0; /* Левое положение */
+    right: 0; /* Правое положение */
+    z-index: 1000; /* Убедитесь, что шапка находится поверх контента */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+    .navbar-nav > li {
+        display: flex;
+        align-items: center;
+    }
+
+        .navbar-nav > li > a {
+            color: #000; /* Черный цвет текста */
+            font-weight: bold;
+        }
+
+        .navbar-nav > li > span {
+            margin-top: 0; /* Убираем верхний отступ */
+            margin-bottom: 0; /* Убираем нижний отступ */
+            color: #000; /* Черный цвет текста */
+            font-weight: bold;
+        }
+
+    .navbar-nav .greeting {
+        margin-top: -5px; /* Поднимите элемент вверх */
+    }
+/* Стили для списка товаров в корзине */
+.cart-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.cart-item {
+    margin-bottom: 10px; /* Отступ снизу между элементами списка */
+}
+
+.cart-item-content {
+    background-color: #ffffff; /* Белый фон */
+    padding: 20px; /* Отступы внутри блока */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для улучшения визуального восприятия */
+    display: grid; /* Используем grid для выравнивания элементов */
+    grid-template-columns: 2fr 1fr 1fr; /* Три колонки */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    color: #000; /* Черный цвет для текста */
+}
+
+.cart-item-summary {
+    display: flex; /* Используем flexbox для выравнивания количества и названия */
+    align-items: center; /* Вертикальное выравнивание */
+}
+
+.cart-item-quantity {
+    font-weight: bold; /* Жирный шрифт для количества */
+    margin-right: 10px; /* Отступ справа */
+    color: #000; /* Черный цвет для количества */
+}
+
+.cart-item-name {
+    flex: 1; /* Занимает оставшееся пространство */
+    font-size: 18px; /* Увеличиваем размер шрифта */
+}
+
+.cart-item-total {
+    font-weight: bold; /* Жирный шрифт для общей стоимости */
+    color: #28a745; /* Зеленый цвет для общей стоимости */
+    font-size: 18px; /* Увеличиваем размер шрифта */
+}
+
+/* Стили для общей стоимости */
+.total-cost {
+    margin-top: 20px; /* Отступ сверху */
+    font-size: 20px; /* Увеличиваем размер шрифта */
+    font-weight: bold; /* Жирный шрифт для общей стоимости */
+    color: #1fed00; /* Красный цвет для общей стоимости */
+}
+
+.cart-info p {
+    font-size: 1.5em; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+}
+
+/* Стили для кнопок удаления товара */
+.remove-item-buttons {
+    display: flex;
+    justify-content: flex-end; /* Выравнивание по правому краю */
+    gap: 10px; /* Отступ между кнопками */
+    margin-left: auto; /* Перемещение кнопок вправо */
+}
+
+.remove-item-button {
+    background-color: #dc3545; /* Красный цвет для кнопки */
+    color: white; /* Белый цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругленные углы */
+    padding: 5px 10px; /* Отступы внутри кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+    .remove-item-button:hover {
+        background-color: #c82333; /* Темнее при наведении */
+    }

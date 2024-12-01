@@ -1,0 +1,67 @@
+{% extends "app/layout.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+<h2>{{ bike.name }}</h2>
+<div class="product-detail">
+    <img src="{{ bike.image.url }}" alt="{{ bike.name }}" class="product-image">
+    <p><b>Цена:</b> {{ bike.price }} руб.</p>
+    <p><b>Описание:</b> {{ bike.description }}</p>
+    <button class="btn btn-success add-to-cart" data-bike-id="{{ bike.id }}" data-quantity="{{ bike_quantities|get_item:bike.id }}">
+        Добавить в корзину ({{ bike_quantities|get_item:bike.id }})
+    </button>
+</div>
+<!-- Блок для отображения количества товаров в корзине -->
+<div class="cart-info">
+    <p>Количество товаров в корзине: <strong>{{ bike_quantities|get_item:bike.id }}</strong></p>
+</div>
+<h3>Отзывы</h3>
+{% if reviews %}
+{% for review in reviews %}
+<div class="review">
+    <p><b>Пользователь:</b> {{ review.user }}</p>
+    <p><b>Оценка:</b> <span class="star">{{ review.оценка|stars }}</span></p>
+    <p><b>Комментарий:</b> {{ review.комментарий }}</p>
+    <p><b>Дата:</b> {{ review.created_at }}</p>
+</div>
+{% endfor %}
+{% else %}
+<p>Отзывов пока нет.</p>
+{% endif %}
+<a href="{% url 'add_review' bike.id %}" class="btn btn-primary">Добавить отзыв</a>
+<!-- Добавьте CSRF-токен -->
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const addToCartButton = document.querySelector('.add-to-cart');
+    addToCartButton.addEventListener('click', function () {
+        const bikeId = this.getAttribute('data-bike-id');
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        fetch(`/bike/${bikeId}/add_to_cart/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({ bike_id: bikeId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const cartInfo = document.querySelector('.cart-info p');
+                cartInfo.innerHTML = `Количество товаров в корзине: ${data.quantity}`;
+                this.setAttribute('data-quantity', data.quantity);
+                this.innerHTML = `Добавить в корзину (${data.quantity})`;
+            } else {
+                alert('Ошибка при добавлении товара в корзину.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<p>
+    Москва – домашний регион гипермаркета VeloHIT. Здесь расположен головной офис, два выставочных зала, склад и собственный сервисный центр.
+    На этой странице вы найдете все возможные способы связи с нами, наши адреса и телефоны. Звоните, будем рады пообщаться и помочь с выбором!
+</p>
+
+<address class="contact-content">
+    ВелоФит - это Хит!<br />
+    Москва, Тверская улица, дом 10<br />
+    <abbr title="Телефон">Т:</abbr>
+    8-800-555-35-35
+</address>
+
+<address class="contact-content">
+    <strong>Техническая поддержка:</strong>   <a href="mailto:support@example.com">support@example.com</a><br />
+    <strong>Отдел маркетинга:</strong> <a href="mailto:marketing@example.com">marketing@example.com</a>
+</address>
+
+<div class="row">
+    <div class="col-md-12">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.792231556011!2d37.61763331596007!3d55.75993998055297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b31742c1%3A0x68b3e329b4b5a5e4!2z0JzQvtGB0LrQvtCy0YHQutC40Lkg0JrRgNC10LzQvdCwLCAxMCwg0KHQsNC90LrRgi3Qn9C10YLRgNCw0LjRgA!5e0!3m2!1sru!2sru!4v1633887257566!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <button class="btn btn-primary" onclick="toggleIframe()">Показать/Скрыть iframe</button>
+        <div id="iframe-container" style="display: none; margin-top: 20px;">
+            <iframe width="110" height="200" src="https://www.myinstants.com/instant/deg-deg-44362/embed/" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function toggleIframe() {
+        var iframeContainer = document.getElementById('iframe-container');
+        if (iframeContainer.style.display === 'none') {
+            iframeContainer.style.display = 'block';
+        } else {
+            iframeContainer.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}

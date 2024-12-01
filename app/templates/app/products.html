@@ -1,0 +1,81 @@
+{% extends "app/layout.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+<h2>Велотренажеры</h2>
+<!-- Блок для отображения количества товаров в корзине -->
+<div class="cart-info">
+    <p>Количество товаров в корзине: <strong>{{ request.session.cart|length }}</strong></p>
+</div>
+<div class="row">
+    {% for bike in bikes %}
+    <div class="col-md-4">
+        <div class="product-item">
+            {% if bike.image %}
+            <img src="{{ bike.image.url }}" alt="{{ bike.name }}" class="product-image">
+            {% else %}
+            <img src="{% static 'app/content/obr1.jpg' %}" alt="{{ bike.name }}" class="product-image">
+            {% endif %}
+            <h3>{{ bike.name }}</h3>
+            <p><i><b>{{ bike.price }} руб.</b></i></p>
+            <div class="button-container">
+                <a href="{% url 'bike_detail' bike.id %}" class="btn btn-primary">Узнать больше</a>
+                <button class="btn btn-success add-to-cart" data-bike-id="{{ bike.id }}" data-quantity="{{ bike_quantities|get_item:bike.id }}">
+                    Добавить в корзину ({{ bike_quantities|get_item:bike.id }})
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const bikeId = this.getAttribute('data-bike-id');
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                let quantity = parseInt(this.getAttribute('data-quantity'));
+                fetch(`/bike/${bikeId}/add_to_cart/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify({ bike_id: bikeId })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            quantity += 1;
+                            this.setAttribute('data-quantity', quantity);
+                            this.innerHTML = `Добавить в корзину (${quantity})`;
+                            const cartInfo = document.querySelector('.cart-info p');
+                            cartInfo.innerHTML = `Количество товаров в корзине: ${Object.keys(data.cart).length}`;
+                        } else {
+                            alert('Ошибка при добавлении товара в корзину.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+    });
+</script>
+<style>
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .add-to-cart {
+        margin-top: 0.5rem;
+    }
+</style>
+{% endblock %}

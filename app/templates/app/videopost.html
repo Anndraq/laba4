@@ -1,0 +1,20 @@
+{% extends "app/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<p>{{ message }}</p>
+
+<h3>Велотренажеры</h3>
+<video width="640" height="360" controls poster="{% static 'app/content/prev1.jpg' %}" preload="metadata">
+    <source src="{% static 'app/content/vid1.mp4' %}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
+
+<h3>Тренировка на велотренажере</h3>
+<video width="640" height="360" controls poster="{% static 'app/content/prev2.jpg' %}" preload="metadata">
+    <source src="{% static 'app/content/vid2.mp4' %}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
+{% endblock %}
